@@ -37,21 +37,35 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-// player plays 5 games with the computer
+// player plays 3 games with the computer
 function game() {
-    for (let i = 0; i < 5; i = i +1) {
-        // player makes a choice
         let playerSelection = (prompt("Choose rock paper scissors")).toUpperCase();
+        let criterion = (playerSelection == "ROCK" || playerSelection == "PAPER" || playerSelection == "SCISSORS");
+        let count = 0;
 
+        while (!criterion) {
+            alert("Write only rock paper scissors");
+            playerSelection = (prompt("Choose rock paper scissors")).toUpperCase();
+            criterion = (playerSelection == "ROCK" || playerSelection == "PAPER" || playerSelection == "SCISSORS");
+        }
 
-        alert(playRound(playerSelection, getComputerChoice()));
-    }
+        while (criterion) {
+            alert(playRound(playerSelection, getComputerChoice()));
+            count = count + 1;
+            if (count >= 3) break;
+    
+            playerSelection = (prompt("Choose rock paper scissors")).toUpperCase();
+            criterion = (playerSelection == "ROCK" || playerSelection == "PAPER" || playerSelection == "SCISSORS");
+            
+            while (!criterion) {
+                alert("Write only rock paper scissors");
+                playerSelection = (prompt("Choose rock paper scissors")).toUpperCase();
+                criterion = (playerSelection == "ROCK" || playerSelection == "PAPER" || playerSelection == "SCISSORS");              
+            }
+        }
 }
 
-
 game();
-
-
 
 
 
