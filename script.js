@@ -24,34 +24,48 @@ function playRound(playerSelection, computerSelection) {
         return `Computer wins! computer selected ${computerSelection} and player selected ${playerSelection}.`;
     }
 
-    if (playerSelection = "ROCK" && computerSelection == "SCISSORS") {
+    if (playerSelection == "ROCK" && computerSelection == "SCISSORS") {
         return `Player wins! player selected ${playerSelection} and computer selected ${computerSelection}.`;
     }
 
-    if (playerSelection = "PAPER" && computerSelection == "ROCK") {
+    if (playerSelection == "PAPER" && computerSelection == "ROCK") {
         return `Player wins! player selected ${playerSelection} and computer selected ${computerSelection}.`;
     }
 
-    if (playerSelection = "SCISSORS" && computerSelection == "ROCK") {
+    if (playerSelection == "SCISSORS" && computerSelection == "ROCK") {
         return `Player wins! player selected ${playerSelection} and computer selected ${computerSelection}.`;
     }
 }
 
-// player plays 5 games with the computer
+// player plays 3 games with the computer
 function game() {
-    for (let i = 0; i < 5; i = i +1) {
-        // player makes a choice
         let playerSelection = (prompt("Choose rock paper scissors")).toUpperCase();
+        let criterion = (playerSelection == "ROCK" || playerSelection == "PAPER" || playerSelection == "SCISSORS");
+        let count = 0;
 
+        while (!criterion) {
+            alert("Write only rock paper scissors");
+            playerSelection = (prompt("Choose rock paper scissors")).toUpperCase();
+            criterion = (playerSelection == "ROCK" || playerSelection == "PAPER" || playerSelection == "SCISSORS");
+        }
 
-        alert(playRound(playerSelection, getComputerChoice()));
-    }
+        while (criterion) {
+            alert(playRound(playerSelection, getComputerChoice()));
+            count = count + 1;
+            if (count >= 3) break;
+    
+            playerSelection = (prompt("Choose rock paper scissors")).toUpperCase();
+            criterion = (playerSelection == "ROCK" || playerSelection == "PAPER" || playerSelection == "SCISSORS");
+            
+            while (!criterion) {
+                alert("Write only rock paper scissors");
+                playerSelection = (prompt("Choose rock paper scissors")).toUpperCase();
+                criterion = (playerSelection == "ROCK" || playerSelection == "PAPER" || playerSelection == "SCISSORS");              
+            }
+        }
 }
-
 
 game();
-
-
 
 
 
