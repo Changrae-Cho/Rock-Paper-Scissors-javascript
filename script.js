@@ -24,15 +24,15 @@ function playRound(playerSelection, computerSelection) {
         return `Computer wins! computer selected ${computerSelection} and player selected ${playerSelection}.`;
     }
 
-    if (playerSelection = "ROCK" && computerSelection == "SCISSORS") {
+    if (playerSelection == "ROCK" && computerSelection == "SCISSORS") {
         return `Player wins! player selected ${playerSelection} and computer selected ${computerSelection}.`;
     }
 
-    if (playerSelection = "PAPER" && computerSelection == "ROCK") {
+    if (playerSelection == "PAPER" && computerSelection == "ROCK") {
         return `Player wins! player selected ${playerSelection} and computer selected ${computerSelection}.`;
     }
 
-    if (playerSelection = "SCISSORS" && computerSelection == "ROCK") {
+    if (playerSelection == "SCISSORS" && computerSelection == "ROCK") {
         return `Player wins! player selected ${playerSelection} and computer selected ${computerSelection}.`;
     }
 }
@@ -66,13 +66,4 @@ function game() {
 }
 
 game();
-
-
-
-
-
-
-
-
-
 
